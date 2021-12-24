@@ -25,6 +25,10 @@ KMean clustering is a form of unsupervised learning that tries to group vectors 
 - Librosa, latest stable
 - PyAudio, latest stable 
 
+# How to Use
+Examples can be found in the main.py file.
+You can either retrain the model with additional voices or use the already pretrained model.
+
 # Datasets Used
 
 * OpenSLR LibriSpeech-dev-clean (voices): https://www.openslr.org/resources/12/dev-clean.tar.gz
