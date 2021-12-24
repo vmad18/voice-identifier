@@ -4,7 +4,7 @@ Identifying a speaker, with their voice, from a couple of samples
 # How It Works
 A dataset of known voices of varying lengths as well as known random noises are used to train a deep learning model. 
 Mel-frequency cepstrum (mfccs) features are extracted from the sounds and train the model. MFCCs describe the "shape" of the audio. 
-The output of the model was whether the sound was a voice, and who that voice was, or if it was nosie. 
+The output of the model was whether the sound was a voice, and who that voice was, or if it was noise. 
 
 The trained model has an accuracy of: *~90.1%*
 
