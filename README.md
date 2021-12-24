@@ -26,6 +26,6 @@ KMean clustering is a form of unsupervised learning that tries to group vectors 
 
 # Data Sets Used
 
-OpenSLR LibriSpeech-dev-clean (voices): https://www.openslr.org/resources/12/dev-clean.tar.gz
-OpenSLR LibriSpeech-test-clean (voices): https://www.openslr.org/resources/12/test-clean.tar.gz
-Environmental Sound Classification (random noise): https://github.com/karoldvl/ESC-50/archive/master.zip
+* OpenSLR LibriSpeech-dev-clean (voices): https://www.openslr.org/resources/12/dev-clean.tar.gz
+* OpenSLR LibriSpeech-test-clean (voices): https://www.openslr.org/resources/12/test-clean.tar.gz
+* Environmental Sound Classification (random noise): https://github.com/karoldvl/ESC-50/archive/master.zip
