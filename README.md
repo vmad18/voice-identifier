@@ -6,7 +6,7 @@ A dataset of known voices of varying lengths as well as known random noises are 
 Mel-frequency cepstrum (mfccs) features are extracted from the sounds and train the model. MFCCs describe the "shape" of the audio. 
 The output of the model was whether the sound was a voice, and who that voice was, or if it was nosie. 
 
-The trained model had an accuracy of: *~90.1%*
+The trained model has an accuracy of: *~90.1%*
 
 The model was now trained to not only discern voices from sounds, but discern voices from other voices. 
 With that intuition, the last layer of the model was removed, and the new model outputed a voice feature vector.
