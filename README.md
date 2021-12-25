@@ -8,6 +8,8 @@ The output of the model was whether the sound was a voice, and who that voice wa
 
 The trained model has an accuracy of: *~90.1%*
 
+The question is, how can one identify a voice without needing to retrain the model on that voice? 
+
 The model was now trained to not only discern voices from sounds, but discern voices from other voices. 
 With that intuition, the last layer of the model was removed, and the new model outputed a voice feature vector.
 
