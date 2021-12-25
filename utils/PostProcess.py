@@ -14,8 +14,9 @@ from time import sleep
 
 class PostProcess:
 
-    def __init__(self, model, g=0):
-        self.vf = model
+    def __init__(self, vf, model, g=0):
+        self.vf = vf
+        self.model = model
         self.voices = []
         self.groups = g
         self.cluster = None
@@ -103,7 +104,12 @@ class PostProcess:
 
     def addVoicesFromPath(self, path, name, add=False):
         for i in os.listdir(path):
-            self.voices.append(PostProcess.voiceFeatures(PreProcess.features_extractor(path + i)))
+            feat = PreProcess.features_extractor(path + i)
+            tnsr = tensorflow.convert_to_tensor(feat)[tensorflow.newaxis, ...]
+            if np.argmax(self.model.predict(tnsr)) == self.model.layers[-1].shape[0]:
+                print("Data does not seem like a voice...")
+
+            self.voices.append(PostProcess.voiceFeatures(feat))
         
         if add:
             self.addGroup()
@@ -128,10 +134,12 @@ class PostProcess:
         if not self.generated: 
             print("First Generate the Clusters")
             return
+        tnsr = tensorflow.convert_to_tensor(voice)[tensorflow.newaxis, ...]
         vf = self.voiceFeatures(voice)
         score = self.cluster.score(vf)
 
-        if not (score >= thresh): return "Unknown" 
+        #make sure to have the last output of the model be the "not voice"
+        if not (score >= thresh or np.argmax(self.model.predict(tnsr)) == self.model.layers[-1].shape[0]): return "Unknown" 
         return self.whois[self.cluster.predict(vf)[0]]
 
     def predictFromPath(self, path, thresh:float = -20) -> str:
