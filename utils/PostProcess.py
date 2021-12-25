@@ -108,7 +108,8 @@ class PostProcess:
             tnsr = tensorflow.convert_to_tensor(feat)[tensorflow.newaxis, ...]
             if np.argmax(self.model.predict(tnsr)) == self.model.layers[-1].shape[0]:
                 print("Data does not seem like a voice...")
-
+                continue
+            
             self.voices.append(PostProcess.voiceFeatures(feat))
         
         if add:
